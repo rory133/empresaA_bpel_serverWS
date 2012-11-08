@@ -4,6 +4,12 @@
     <service name="pruebaWebService">
       <implementation-class>org.proyecto.empresaA_bpel_server.webServices.pruebaWebService</implementation-class>
     </service>
+    <service name="AdministradorWebService">
+      <implementation-class>org.proyecto.empresaA_bpel_server.webServices.AdministradorWebService</implementation-class>
+    </service>
+    <service name="ClienteWebService">
+      <implementation-class>org.proyecto.empresaA_bpel_server.webServices.ClienteWebService</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

@@ -13,7 +13,12 @@
     <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
     <property name="c3p0.minPoolSize">5</property>
     <property name="c3p0.timeout">1000</property>
-    <mapping class="org.proyecto.empresaA_bpel_server.model.Administrador_A" />    
-    <mapping class="org.proyecto.empresaA_bpel_server.model.Usuario_A" />    
+     <mapping class="org.proyecto.empresaA_bpel_server.model.Usuario_A" /> 
+     <mapping class="org.proyecto.empresaA_bpel_server.model.Carro_A" /> 
+     <mapping class="org.proyecto.empresaA_bpel_server.model.Producto_ASeleccionado" /> 
+     <mapping class="org.proyecto.empresaA_bpel_server.model.Producto_A" /> 
+    <mapping class="org.proyecto.empresaA_bpel_server.model.Administrador_A" />   
+    <mapping class="org.proyecto.empresaA_bpel_server.model.Cliente_A" />  
+      
   </session-factory>
 </hibernate-configuration>

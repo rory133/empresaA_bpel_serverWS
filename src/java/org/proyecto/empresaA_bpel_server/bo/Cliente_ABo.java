@@ -1,10 +1,12 @@
-package org.proyecto.empresaA_bpel_server.dao;
+package org.proyecto.empresaA_bpel_server.bo;
 
 import java.util.List;
+
 import org.proyecto.empresaA_bpel_server.model.Cliente_A;
 import org.proyecto.empresaA_bpel_server.model.Usuario_A;
 
-public interface Cliente_ADao {
+public interface Cliente_ABo {
+	
 	void save(Cliente_A cliente_A);
 	
 	void update(Cliente_A cliente_A);
@@ -16,4 +18,5 @@ public interface Cliente_ADao {
 	Usuario_A findByCliente_A_login_usuario_a(String cliente_A_login_usuario_a);
 	
 	List<Cliente_A> findAll ();
+
 }

@@ -1,74 +1,85 @@
 package org.proyecto.empresaA_bpel_server.dao.impl;
 
+
+
 import java.util.List;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import org.proyecto.empresaA_bpel_server.dao.Administrador_ADao;
-import org.proyecto.empresaA_bpel_server.model.Administrador_A;
+import org.proyecto.empresaA_bpel_server.dao.Cliente_ADao;
+import org.proyecto.empresaA_bpel_server.model.Cliente_A;
 import org.proyecto.empresaA_bpel_server.model.Usuario_A;
 import persistence.HibernateUtil;
 
 
 
-
-
+//@Repository("Cliente_ADao")
 
 
 // le decimos a Spring que es una clase DAO y que se inyectar� el objeto SessionFactory
 //de Hibernate con la anotacion @Autowired
 
-public class Administrador_ADaoImpl  implements Administrador_ADao {
+public class Cliente_ADaoImpl implements Cliente_ADao {
+	
 
-         
-   
-       
-        @Override
-	public void save(Administrador_A administrador_A) {
+	
+
+
+         @Override
+	public void save(Cliente_A cliente_A) {
+
             Session session=HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction trans=session.beginTransaction();
-            session.save(administrador_A);
+            session.save(cliente_A);
             trans.commit();
-	    //this.sessionFactory.getCurrentSession().save(administrador_A);
 	
 	}
 
 
-        @Override
-	public void update(Administrador_A administrador_A) {
+         @Override
+	public void update(Cliente_A cliente_A) {
+
             Session session=HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction trans=session.beginTransaction();
-            session.merge(administrador_A);
+            session.merge(cliente_A);
             trans.commit();
-            //this.sessionFactory.getCurrentSession().merge(administrador_A);
-	}
-        @Override
-	public void delete(Administrador_A administrador_A) {
-            Session session=HibernateUtil.getSessionFactory().getCurrentSession();
-            Transaction trans=session.beginTransaction();
-            session.delete(administrador_A);
-            trans.commit();
-            //this.sessionFactory.getCurrentSession().delete(administrador_A);
 		
 	}
         @Override
-	@SuppressWarnings("unchecked")
-	public Administrador_A findByAdministrador_AIdAdministrador_a(String administrador_AIdAdministrador_a) {
+	public void delete(Cliente_A cliente_A) {
+
             Session session=HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction trans=session.beginTransaction();
-            List <Administrador_A> list =session.createCriteria(Administrador_A.class )
-                        .add(Restrictions.eq("idusuarios_a",Integer.parseInt(administrador_AIdAdministrador_a)))
+            session.delete(cliente_A);
+            trans.commit();
+
+		
+	}
+
+	@SuppressWarnings("unchecked")
+        @Override
+	public Cliente_A findByCliente_AIdCliente_a(String cliente_AIdCliente_a) {
+
+            Session session=HibernateUtil.getSessionFactory().getCurrentSession();
+            Transaction trans=session.beginTransaction();
+            List <Cliente_A> list =session.createCriteria(Cliente_A.class )
+                        .add(Restrictions.eq("idusuarios_a",Integer.parseInt(cliente_AIdCliente_a)))
                         .list();
             trans.commit();
             return list.get(0);
+                
+                
 	}
-	@Override
+	
 	@SuppressWarnings("unchecked")
-	public Usuario_A findByAdministrador_A_login_usuario_a(String administrador_A_login_usuario_a) {
+        @Override
+	public Usuario_A findByCliente_A_login_usuario_a(String cliente_A_login_usuario_a) {
+
              Session session=HibernateUtil.getSessionFactory().getCurrentSession();
               Transaction trans=session.beginTransaction();
              List <Usuario_A> list =session.createCriteria (Usuario_A.class )
-                        .add(Restrictions.eq("login_usuario_a",administrador_A_login_usuario_a))
+                        .add(Restrictions.eq("login_usuario_a",cliente_A_login_usuario_a))
                         .list();
                 
                 
@@ -78,16 +89,19 @@ public class Administrador_ADaoImpl  implements Administrador_ADao {
                 }
                 trans.commit();
 		return (Usuario_A)list.get(0);
-
+		
 	}
-        @Override
+
 	@SuppressWarnings("unchecked")
-	public List<Administrador_A> findAll (){
+        @Override
+	public List<Cliente_A> findAll (){
             Session session=HibernateUtil.getSessionFactory().getCurrentSession();
             Transaction trans=session.beginTransaction();
-           List <Administrador_A> list= session.createCriteria (Administrador_A.class )
+           List <Cliente_A> list= session.createCriteria (Cliente_A.class )
                .list();
              trans.commit();
              return list;
 	}
+
+
 }
