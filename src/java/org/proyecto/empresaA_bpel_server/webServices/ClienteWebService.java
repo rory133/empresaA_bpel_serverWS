@@ -23,7 +23,7 @@ import org.proyecto.empresaA_bpel_server.util.Mail;
 public class ClienteWebService {
 
     /**
-     * Web service operation
+     * Ebtenemos el listado de todos los clientes
      */
     @WebMethod(operationName = "listadoClientes")
     public ListaClientes_A listadoClientes() {
@@ -32,14 +32,14 @@ public class ClienteWebService {
 	lista.setDataCliente(cliente_A.findAll());
         
         /////////////////////
-         String content="apreciado usuario gracias por darse de alta en nuestra página ahora pordrá realizar los pedidos que desee";
-        String subject="realizada correctamente alta en empresa_b";		
-        //mail.sendMail(cliente_a.getLogin_usuario_a(), content, cliente_a.getEmail_a(), subject);
-        String to="rory133@gmail.com";
-        String from="rory3333@gmail.com";
-       // Mail mail = new Mail(from, to, subject, content);
-        Mail mail = new Mail(from, to, subject, content);
-        mail.send();
+        
+//         String content="apreciado usuario gracias por darse de alta en nuestra página ahora pordrá realizar los pedidos que desee";
+//        String subject="realizada correctamente alta en empresa_b";		
+//        //mail.sendMail(cliente_a.getLogin_usuario_a(), content, cliente_a.getEmail_a(), subject);
+//        String to="rory133@gmail.com";
+//        String from="rory3333@gmail.com";
+//        Mail mail = new Mail(from, to, subject, content);
+//        mail.send();
         
         
         ////////////////////////
@@ -47,7 +47,7 @@ public class ClienteWebService {
     }
 
     /**
-     * Web service operation
+     * Obtenemos el cliente de por su id
      */
     @WebMethod(operationName = "clienteXid")
     public Cliente_A clienteXid(@WebParam(name = "id") String id) {
@@ -57,7 +57,7 @@ public class ClienteWebService {
     }
 
     /**
-     * Web service operation
+     * Creamos un nuevo cliente
      */
     @WebMethod(operationName = "crearCliente")
     public void crearCliente(@WebParam(name = "cliente_a") Cliente_A cliente_a) {
@@ -71,37 +71,46 @@ public class ClienteWebService {
     }
 
     /**
-     * Web service operation
+     * Obenemos un cliente por su login
      */
-    @WebMethod(operationName = "sendMail")
-    @Oneway
-    public void sendMail(@WebParam(name = "mensaje") String mensaje, @WebParam(name = "parameter1") String parameter1) {
-        
-         String content="apreciado usuario gracias por darse de alta en nuestra página ahora pordrá realizar los pedidos que desee";
-        String subject="realizada correctamente alta en empresa_b";		
-        //mail.sendMail(cliente_a.getLogin_usuario_a(), content, cliente_a.getEmail_a(), subject);
-        String to="rory133@gmail.com";
-        String from="rory3333@gmail.com";
-       // Mail mail = new Mail(from, to, subject, content);
-        Mail mail = new Mail(from, to, subject, mensaje);
-        mail.send();
-        
+    @WebMethod(operationName = "clienteXLogin")
+    public Cliente_A clienteXLogin(@WebParam(name = "login") String login) {
+       Cliente_ABo cliente_A=new Cliente_ABoImpl();
+       
+        Cliente_A clientTemp =(Cliente_A)cliente_A.findByCliente_A_login_usuario_a(login);
+        if(null!=clientTemp){		
+                Integer id=clientTemp.getIdusuarios_a();
+                Cliente_A clientTemp2= cliente_A.findByCliente_AIdCliente_a(String.valueOf(id));
+                return clientTemp2;
+        }
+        return null;
     }
-    
-    @WebMethod(operationName = "sendMailSSL")
+
+    /**
+     * Acutalizamos un cliente
+     */
+    @WebMethod(operationName = "clienteUpdate")
     @Oneway
-    public void sendMailSSL(@WebParam(name = "mensaje") String mensaje, @WebParam(name = "parameter1") String parameter1) {
-        
-         String content="apreciado usuario gracias por darse de alta en nuestra página ahora pordrá realizar los pedidos que desee";
-        String subject="realizada correctamente alta en empresa_b";		
-        //mail.sendMail(cliente_a.getLogin_usuario_a(), content, cliente_a.getEmail_a(), subject);
-        String to="rory133@gmail.com";
-        String from="rory3333@gmail.com";
-       // Mail mail = new Mail(from, to, subject, content);
-        Mail mail = new Mail(from, to, subject, mensaje);
-        mail.sendSSL();
-        
+    public void clienteUpdate(@WebParam(name = "cliente_a") Cliente_A cliente_a) {
+        Cliente_ABo cliente_A=new Cliente_ABoImpl();
+        cliente_A.update(cliente_a);
+
     }
+
+    /**
+     * Borramos un cliente
+     */
+    @WebMethod(operationName = "clienteDelete")
+    @Oneway
+    public void clienteDelete(@WebParam(name = "id") String id) {
+        Cliente_A cliente_temp= new Cliente_A();
+        Cliente_ABo cliente_A=new Cliente_ABoImpl();
+	cliente_temp= cliente_A.findByCliente_AIdCliente_a(id);
+        cliente_A.delete(cliente_temp);
+    }
+
+
+
     
 
 

@@ -10,6 +10,9 @@
     <service name="ClienteWebService">
       <implementation-class>org.proyecto.empresaA_bpel_server.webServices.ClienteWebService</implementation-class>
     </service>
+    <service name="ProductoWebService">
+      <implementation-class>org.proyecto.empresaA_bpel_server.webServices.ProductoWebService</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
