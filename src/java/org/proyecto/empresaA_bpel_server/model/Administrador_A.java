@@ -9,15 +9,13 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 @XmlRootElement
 @XmlType(propOrder = {"idusuarios_a", "login_usuario_a","nombre_a","apellidos_a","dni_nif_a","email_a","AUTHORITY","ENABLED","password_a","cargo_a","matricula_a"})
-
 @Entity
 @Table(name = "administrador_a")
 @PrimaryKeyJoinColumn(name="IDUSUARIOS_A")
 public class Administrador_A  extends Usuario_A implements Serializable {
-	private static final long serialVersionUID = -5527566244002296042L;
+	private static final long serialVersionUID = -5527566244006596042L;
 	
 	@Size(min = 2, max = 15, message= "tienes que introducir un cargo")
 	@Column(name = "CARGO_A")

@@ -5,18 +5,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.proyecto.empresaA_bpel_server.model.Producto_ASeleccionado;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
+import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -80,6 +78,7 @@ public class Carro_A implements Serializable{
 
 
 	@Column(name = "FECHA")
+        @Temporal(javax.persistence.TemporalType.DATE)
 	public Date getFecha_a() {
 		return fecha_a;
 	}
@@ -91,20 +90,20 @@ public class Carro_A implements Serializable{
 	}
 
 	@XmlTransient
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "carro_a")
-	public Set<Producto_ASeleccionado> getProducto_BSeleccionado() {
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "carro_a")
+	public Set<Producto_ASeleccionado> getProducto_ASeleccionado() {
 		return producto_ASeleccionado;
 	}
 
 
 	
-	public void setProducto_BSeleccionado(
+	public void setProducto_ASeleccionado(
 			Set<Producto_ASeleccionado> producto_ASeleccionado) {
 		this.producto_ASeleccionado = producto_ASeleccionado;
 	}
 	
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@XmlTransient
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idcliente", nullable = false)
 	public Cliente_A getCliente_a() {
 		return cliente_a;

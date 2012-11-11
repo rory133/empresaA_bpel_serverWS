@@ -4,10 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import javax.validation.constraints.*;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +11,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-//import org.codehaus.jackson.annotate.JsonIgnore;
+import javax.validation.constraints.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
 
 
 
@@ -27,7 +27,7 @@ import javax.persistence.Temporal;
 public class Cliente_A  extends Usuario_A implements Serializable {
 	private static final long serialVersionUID = -5527566244002296042L;
 	
-	@Column(name = "FECHA_ALTA_A")
+	@Column(name = "FECHA_ALTA_A")   
         @Temporal(javax.persistence.TemporalType.DATE)
 	private Date fecha_alta_a;
 	 
@@ -44,8 +44,8 @@ public class Cliente_A  extends Usuario_A implements Serializable {
 	private String codigopostal_a;
 
 	
-	//@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente_a")
+	@XmlTransient
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cliente_a")
 	private Set<Carro_A> carro_a = new HashSet<Carro_A>(0);
 	
 	

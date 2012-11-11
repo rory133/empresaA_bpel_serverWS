@@ -10,15 +10,26 @@
     <property name="hibernate.connection.password">admin</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
+   <!-- <property name="hibernate.default-lazy">false</property>-->
     <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
     <property name="c3p0.minPoolSize">5</property>
     <property name="c3p0.timeout">1000</property>
+    <!-- Use the C3P0 connection pool provider -->
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.max_size">20</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <property name="hibernate.c3p0.idle_test_period">3000</property>
      <mapping class="org.proyecto.empresaA_bpel_server.model.Usuario_A" /> 
-     <mapping class="org.proyecto.empresaA_bpel_server.model.Carro_A" /> 
-     <mapping class="org.proyecto.empresaA_bpel_server.model.Producto_ASeleccionado" /> 
+     <mapping class="org.proyecto.empresaA_bpel_server.model.Cliente_A" />
+     <mapping class="org.proyecto.empresaA_bpel_server.model.Administrador_A" />   
      <mapping class="org.proyecto.empresaA_bpel_server.model.Producto_A" /> 
-    <mapping class="org.proyecto.empresaA_bpel_server.model.Administrador_A" />   
-    <mapping class="org.proyecto.empresaA_bpel_server.model.Cliente_A" />  
+     <mapping class="org.proyecto.empresaA_bpel_server.model.Producto_ASeleccionado" />                
+     <mapping class="org.proyecto.empresaA_bpel_server.model.Carro_A" /> 
+
+
+
+  
       
   </session-factory>
 </hibernate-configuration>

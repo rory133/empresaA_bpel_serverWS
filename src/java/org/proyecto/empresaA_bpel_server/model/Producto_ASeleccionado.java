@@ -7,9 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="producto_aSeleccionado")
@@ -68,7 +68,7 @@ public class Producto_ASeleccionado implements Serializable {
 		this.idproductoSeleccionado = idproductoSeleccionado;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idproductoA", nullable = false)
 	public Producto_A getProducto_a() {
 		return producto_a;
@@ -78,7 +78,7 @@ public class Producto_ASeleccionado implements Serializable {
 		this.producto_a = producto_a;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "IDCARRO_A", nullable = false)
 	public Carro_A getCarro_a() {
 		return carro_a;

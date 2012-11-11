@@ -1,8 +1,6 @@
 package org.proyecto.empresaA_bpel_server.dao;
 
 import java.util.List;
-
-
 import org.proyecto.empresaA_bpel_server.model.Producto_ASeleccionado;
 
 public interface Producto_ASeleccionadoDao {

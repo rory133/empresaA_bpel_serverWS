@@ -1,7 +1,6 @@
 package org.proyecto.empresaA_bpel_server.bo;
 
 import java.util.List;
-
 import org.proyecto.empresaA_bpel_server.model.Producto_ASeleccionado;
 
 
@@ -17,6 +16,10 @@ public interface Producto_ASeleccionadoBo {
 	Producto_ASeleccionado findByProducto_ASeleccionadoIdProducto_a(String Producto_ASeleccionadoIdProducto_a);
 	
 	Producto_ASeleccionado findByProducto_ASeleccionado_nombre(String producto_ASeleccionado_nombre);
+        
+        Producto_ASeleccionado findByProducto_ASeleccionadoIdProducto_a_y_carro_a(String Producto_ASeleccionadoIdProducto_a, String carro_a);
+        
+        List <Producto_ASeleccionado> findByProducto_ASeleccionadoPorIdcarro_a(String carro_a);
 	
 	List<Producto_ASeleccionado> findAll ();
 

@@ -21,7 +21,6 @@ import javax.xml.bind.annotation.XmlTransient;
 
 
 
-
 @XmlRootElement(name="producto_a")
 @Entity
 @Table(name = "producto_a")
@@ -62,7 +61,6 @@ public class Producto_A implements Serializable{
 	  
 	  @NotNull(message = "hay que indicar un precio")
 	  @Digits(integer=10, fraction=2,  message= "el precio es un numero con dos decimales")
-	  //@NumberFormat(style=Style.CURRENCY)
 	  @Column (name = "PRECIO_A")
 	  private BigDecimal precio_a;
 	  
