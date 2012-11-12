@@ -2,31 +2,26 @@ package org.proyecto.empresaA_bpel_server.util;
 
  
 import java.util.Properties;
- 
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.Message.RecipientType;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.Authenticator;
-import javax.mail.PasswordAuthentication;
-import javax.mail.PasswordAuthentication;
  
 public  class Mail {
  
-    private String from;
+    private String from="rory3333@gmail.com";
     private String to;
     private String subject;
     private String text;
     final String username="rory3333";
     final String password="ro53nd07";
 
-    public Mail(String from, String to, String subject, String content) {
+    public Mail(String to, String subject, String content) {
       
-        this.from = from;
+        //this.from = this.from;
         this.to = to;
         this.subject = subject;
         this.text = content;

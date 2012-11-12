@@ -16,6 +16,12 @@
     <service name="Producto_ASeleccionadoWebService">
       <implementation-class>org.proyecto.empresaA_bpel_server.webServices.Producto_ASeleccionadoWebService</implementation-class>
     </service>
+    <service name="CarroWebService">
+      <implementation-class>org.proyecto.empresaA_bpel_server.webServices.CarroWebService</implementation-class>
+    </service>
+    <service name="mailWebService">
+      <implementation-class>org.proyecto.empresaA_bpel_server.webServices.mailWebService</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

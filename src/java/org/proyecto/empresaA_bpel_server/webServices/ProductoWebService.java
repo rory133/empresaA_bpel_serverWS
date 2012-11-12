@@ -39,7 +39,6 @@ public class ProductoWebService {
     @WebMethod(operationName = "crearProducto")
     public String crearProducto(@WebParam(name = "producto_a") Producto_A producto_a) {
         Producto_ABo productos_A=new Producto_ABoImpl();
-        
         productos_A.save(producto_a);
 	String idPruducto=String.valueOf(producto_a.getIdproductoa());
 	//devolvemos el producto recien creado

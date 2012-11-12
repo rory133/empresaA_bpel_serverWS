@@ -13,7 +13,6 @@ import org.proyecto.empresaA_bpel_server.bo.Cliente_ABo;
 import org.proyecto.empresaA_bpel_server.bo.impl.Cliente_ABoImpl;
 import org.proyecto.empresaA_bpel_server.model.Cliente_A;
 import org.proyecto.empresaA_bpel_server.model.ListaClientes_A;
-import org.proyecto.empresaA_bpel_server.util.Mail;
 
 /**
  *
@@ -103,7 +102,7 @@ public class ClienteWebService {
     @WebMethod(operationName = "clienteDelete")
     @Oneway
     public void clienteDelete(@WebParam(name = "id") String id) {
-        Cliente_A cliente_temp= new Cliente_A();
+        Cliente_A cliente_temp;
         Cliente_ABo cliente_A=new Cliente_ABoImpl();
 	cliente_temp= cliente_A.findByCliente_AIdCliente_a(id);
         cliente_A.delete(cliente_temp);
