@@ -18,6 +18,7 @@ import org.proyecto.empresaA_bpel_server.model.Producto_A;
  * @author juanma
  */
 @WebService(serviceName = "ProductoWebService")
+//@WebService(serviceName = "ProductoWebService",wsdlLocation = "WEB-INF/wsdl/ProductoWebService.wsdl")
 public class ProductoWebService {
     
     /**

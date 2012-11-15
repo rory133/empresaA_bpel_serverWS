@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <definitions 
+ xmlns="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="AdministradorWebService" targetNamespace="http://webServices.empresaA_bpel_server.proyecto.org/" xmlns:tns="http://webServices.empresaA_bpel_server.proyecto.org/" 
+ >
+    <message name="listadoAdministradores"/>
+    <message name="listadoAdministradoresResponse"/>
+    <message name="administradorXid"/>
+    <message name="administradorXidResponse"/>
+    <message name="crearAdministrador"/>
+    <message name="crearAdministradorResponse"/>
+    <message name="administradorXlogin"/>
+    <message name="administradorXloginResponse"/>
+    <message name="administradorUpdate"/>
+    <message name="administradorUpdateResponse"/>
+    <message name="administradorDelete"/>
+    <message name="administradorDeleteResponse"/>
+    <portType name="AdministradorWebService">
+        <operation name="listadoAdministradores">
+            <input message="tns:listadoAdministradores"/>
+            <output message="tns:listadoAdministradoresResponse"/>
+        </operation>
+        <operation name="administradorXid">
+            <input message="tns:administradorXid"/>
+            <output message="tns:administradorXidResponse"/>
+        </operation>
+        <operation name="crearAdministrador">
+            <input message="tns:crearAdministrador"/>
+            <output message="tns:crearAdministradorResponse"/>
+        </operation>
+        <operation name="administradorXlogin">
+            <input message="tns:administradorXlogin"/>
+            <output message="tns:administradorXloginResponse"/>
+        </operation>
+        <operation name="administradorUpdate">
+            <input message="tns:administradorUpdate"/>
+            <output message="tns:administradorUpdateResponse"/>
+        </operation>
+        <operation name="administradorDelete">
+            <input message="tns:administradorDelete"/>
+            <output message="tns:administradorDeleteResponse"/>
+        </operation>
+    </portType>
+    <binding name="AdministradorWebServicePortBinding" type="tns:AdministradorWebService">
+        <operation name="listadoAdministradores">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="administradorXid">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="crearAdministrador">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="administradorXlogin">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="administradorUpdate">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="administradorDelete">
+            <input/>
+            <output/>
+        </operation>
+    </binding>
+    <service name="AdministradorWebService">
+        <port name="AdministradorWebServicePort" binding="tns:AdministradorWebServicePortBinding"/>
+    </service>
+</definitions>

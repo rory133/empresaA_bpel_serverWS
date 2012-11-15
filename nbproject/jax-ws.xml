@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="pruebaWebService">
-      <implementation-class>org.proyecto.empresaA_bpel_server.webServices.pruebaWebService</implementation-class>
-    </service>
     <service name="AdministradorWebService">
       <implementation-class>org.proyecto.empresaA_bpel_server.webServices.AdministradorWebService</implementation-class>
     </service>
@@ -21,6 +18,9 @@
     </service>
     <service name="mailWebService">
       <implementation-class>org.proyecto.empresaA_bpel_server.webServices.mailWebService</implementation-class>
+    </service>
+    <service name="pruebaWebService">
+      <implementation-class>org.proyecto.empresaA_bpel_server.webServices.pruebaWebService</implementation-class>
     </service>
   </services>
   <clients/>

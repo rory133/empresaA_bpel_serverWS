@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://webServices.empresaA_bpel_server.proyecto.org/" xmlns:tns="http://webServices.empresaA_bpel_server.proyecto.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="crearProducto" type="tns:crearProducto"/>
+
+  <xs:element name="crearProductoResponse" type="tns:crearProductoResponse"/>
+
+  <xs:element name="listadoProductos" type="tns:listadoProductos"/>
+
+  <xs:element name="listadoProductosResponse" type="tns:listadoProductosResponse"/>
+
+  <xs:element name="productoDelete" type="tns:productoDelete"/>
+
+  <xs:element name="productoUpdate" type="tns:productoUpdate"/>
+
+  <xs:element name="productoUpdateResponse" type="tns:productoUpdateResponse"/>
+
+  <xs:element name="productoXid" type="tns:productoXid"/>
+
+  <xs:element name="productoXidResponse" type="tns:productoXidResponse"/>
+
+  <xs:complexType name="crearProducto">
+    <xs:sequence>
+      <xs:element name="producto_a" type="tns:productoA" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productoA">
+    <xs:sequence>
+      <xs:element name="cantidad_existencias" type="xs:int" minOccurs="0"/>
+      <xs:element name="diametro_a" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="idproductoa" type="xs:int" minOccurs="0"/>
+      <xs:element name="longitud_a" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="nombre_productoA" type="xs:string" minOccurs="0"/>
+      <xs:element name="precio_a" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="productos_a_seleccionados" type="tns:productoASeleccionado" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+
+
+
+
+  <xs:complexType name="crearProductoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productoUpdate">
+    <xs:sequence>
+      <xs:element name="producto_a" type="tns:productoA" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productoUpdateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listadoProductos">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="listadoProductosResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:listaProductosA" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listaProductosA">
+    <xs:sequence>
+      <xs:element name="dataProducto" type="tns:productoA" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productoXid">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productoXidResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:productoA" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productoDelete">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

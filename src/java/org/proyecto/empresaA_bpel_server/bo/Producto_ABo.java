@@ -1,7 +1,6 @@
 package org.proyecto.empresaA_bpel_server.bo;
 
 import java.util.List;
-
 import org.proyecto.empresaA_bpel_server.model.Producto_A;
 
 
